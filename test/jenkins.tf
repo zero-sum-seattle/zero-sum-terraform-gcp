@@ -24,7 +24,7 @@ resource "google_compute_instance" "jenkins-vm" {
 
   // this will work for testing, but not deployments
   machine_type = "n1-standard-1"
-  tags = ["jenkins"]
+  tags         = ["jenkins"]
 
   boot_disk {
     initialize_params {
@@ -40,6 +40,10 @@ resource "google_compute_instance" "jenkins-vm" {
 
   network_interface {
     subnetwork = google_compute_subnetwork.main_subnet.name
+
+    access_config {
+      nat_ip = element(google_compute_instance.jenkins[0]).network_interface.0.access_config.0.nat_ip
+    }
   }
 
   // This will work until a packer image is ready or I move jenkins to GKE 

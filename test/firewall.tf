@@ -49,4 +49,15 @@ resource "google_compute_firewall" "icmp" {
   source_ranges = ["0.0.0.0/0"]
 }
 
+resource "google_compute_firewall" "tcp-8080" {
+  name = "${var.network}-firewall-tcp-8080"
+  network = "${google_compute_network.main_vpc_network.name}"
 
+  allow {
+      protocol = "tcp"
+      ports   = ["8080"]
+  }  
+
+  target_tags = ["${var.network}-firewall-tcp-8080"]
+  source_ranges = ["0.0.0.0/0"]
+}
