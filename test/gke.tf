@@ -29,7 +29,7 @@ resource "google_container_node_pool" "primary_nodes" {
       env = local.project
     }
 
-    machine_type = "n1-standard-1"
+    machine_type = "e2-standard-2"
     tags         = ["gke-node", "${local.project}-gke"]
     metadata = {
       disable-legacy-endpoints = "true"

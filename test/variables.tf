@@ -9,3 +9,15 @@ variable "network" {
   default        = "main-vpc"
   description    = "the number of nodes in a gke pool"
 }
+
+variable "dns" {
+  type           = string
+  default        = "mattsface.net."
+  description    = "the number of nodes in a gke pool"
+}
+
+variable "ansible" {
+  type = string
+  default = "ansible"
+}
+
