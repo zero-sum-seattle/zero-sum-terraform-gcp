@@ -1,5 +1,5 @@
 locals {
-  cluster_name = "mattsface-${local.environment}-gke"
+  cluster_name = "zero-sum-seattle-${local.environment}-gke"
 }
 
 resource "google_container_cluster" "primary" {

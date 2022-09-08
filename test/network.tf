@@ -12,4 +12,7 @@ resource "google_compute_subnetwork" "main_subnet" {
 
 resource "google_compute_global_address" "nginx_ingress_ext_ip" {
   name = "nginx-ingress-ext-ip"
+  address_type="EXTERNAL"
 }
+
+
