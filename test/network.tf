@@ -9,3 +9,10 @@ resource "google_compute_subnetwork" "main_subnet" {
   network       = google_compute_network.main_vpc_network.name
   ip_cidr_range = "192.168.16.0/24"
 }
+
+resource "google_compute_global_address" "nginx_ingress_ext_ip" {
+  name = "nginx-ingress-ext-ip"
+  address_type="EXTERNAL"
+}
+
+
