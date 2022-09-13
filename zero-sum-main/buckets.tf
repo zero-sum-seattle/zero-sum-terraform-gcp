@@ -11,3 +11,13 @@ resource "google_storage_bucket" "tfstate" {
     enabled = true
   }
 }
+
+resource "google_storage_bucket" "jenkins_backup" {
+  name          = "jenkins-backup-bucket"
+  force_destroy = false
+  location      = "US"
+  storage_class = "STANDARD"
+  versioning {
+    enabled = true
+  }
+}
