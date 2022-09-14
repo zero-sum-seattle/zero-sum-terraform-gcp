@@ -39,7 +39,7 @@ resource "google_dns_record_set" "jenkins_cname_record" {
   ]
 }
 
-resource "google_dns_record_set" "jenkins_cname_record" {
+resource "google_dns_record_set" "redmind_cname_record" {
   name         = "redmine.${google_dns_managed_zone.zero_sum.dns_name}"
   type         = "CNAME"
   ttl          = 300
