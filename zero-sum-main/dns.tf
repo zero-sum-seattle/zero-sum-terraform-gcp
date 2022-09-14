@@ -39,6 +39,19 @@ resource "google_dns_record_set" "jenkins_cname_record" {
   ]
 }
 
+resource "google_dns_record_set" "jenkins_cname_record" {
+  name         = "redmine.${google_dns_managed_zone.zero_sum.dns_name}"
+  type         = "CNAME"
+  ttl          = 300
+  project      = local.project
+  managed_zone = google_dns_managed_zone.zero_sum.name
+  rrdatas      = [google_dns_record_set.nginx_ingress.name]
+
+  depends_on = [
+    google_dns_managed_zone.zero_sum
+  ]
+}
+
 resource "google_dns_record_set" "nginx_ingress" {
   name         = "nginx-ingress.${google_dns_managed_zone.zero_sum.dns_name}"
   project      = local.project
