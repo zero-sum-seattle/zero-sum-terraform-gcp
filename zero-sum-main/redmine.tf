@@ -6,8 +6,9 @@
 }
 
 resource "google_project_iam_member" "redmine_cloudsql" {
-  role   = "roles/cloudsql.client"
-  member = "serviceAccount:${google_service_account.redmine.email}"
+  role     = "roles/cloudsql.client"
+  member   = "serviceAccount:${google_service_account.redmine.email}"
+  project  = local.project
 }
 
 resource "google_sql_database_instance" "redmine-db" {
