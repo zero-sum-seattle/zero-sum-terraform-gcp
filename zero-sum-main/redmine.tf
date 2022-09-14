@@ -19,7 +19,7 @@ resource "google_sql_database_instance" "redmine-db" {
 
   settings {
     tier = "db-f1-micro"
-
+    disk_type = "PD_HDD"
     backup_configuration {
       enabled = true
     }
