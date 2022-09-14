@@ -32,3 +32,8 @@ resource "google_sql_database" "unity-polr-mysql-db" {
   charset  = "UTF8"
 }
 
+resource "google_service_account_iam_member" "redmine_workload_identity" {
+  service_account_id = google_service_account.redmine.name
+  role               = "roles/iam.workloadIdentityUser"
+  member             = "serviceAccount:${local.project}.svc.id.goog[redmine/redmine]"
+}
