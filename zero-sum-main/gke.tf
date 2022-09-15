@@ -28,6 +28,10 @@ resource "google_container_node_pool" "primary_nodes" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
+    
+    workload_metadata_config {
+      mode = "GKE_METADATA"
+    }
 
     labels = {
       env = local.project
