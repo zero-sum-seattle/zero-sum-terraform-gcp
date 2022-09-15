@@ -65,4 +65,3 @@ resource "google_dns_record_set" "nginx_ingress" {
     google_dns_managed_zone.zero_sum
   ]
 }
-
